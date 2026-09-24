@@ -1,115 +1,569 @@
-:root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
-  
-    background-color: #fcfcfc;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    /* Uncomment the below to change to Dark theme */
-    /* color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #242424; */
-  
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  a {
-    font-weight: 500;
-    color: #646cff;
-    text-decoration: inherit;
-  }
-  a:hover {
-    color: #535bf2;
-  }
-  
+body {
+  min-height: 100vh;
+  padding: 45px;
+  background: #f5f5f5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mnc-grid {
+  width: min(100%, 1200px);
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr
+    1fr
+    1fr;
+
+  grid-template-rows:
+    255px
+    210px
+    210px;
+
+  gap: 26px;
+}
+
+/* =================================
+   DESKTOP GRID POSITION
+   ================================= */
+
+/* LEFT TALL */
+.create {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+/* TOP CENTER */
+.hero {
+  grid-column: 2 / 4;
+  grid-row: 1;
+}
+
+/* RIGHT TALL */
+.presence {
+  grid-column: 4;
+  grid-row: 1 / 3;
+}
+
+/* CENTER LEFT */
+.companies {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* CENTER RIGHT */
+.industries {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+/* BOTTOM LEFT */
+.workforce {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+/* BOTTOM CENTER */
+.stats {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+/* BOTTOM RIGHT WIDE */
+.innovation {
+  grid-column: 3 / 5;
+  grid-row: 3;
+}
+
+
+/* =================================
+   CARD BASE
+   ================================= */
+
+.card {
+  border-radius: 14px;
+  padding: 28px;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card h1,
+.card h2 {
+  line-height: 0.95;
+  letter-spacing: -2px;
+}
+
+.card h1 {
+  font-size: clamp(35px, 4vw, 58px);
+}
+
+.card h2 {
+  font-size: clamp(25px, 3vw, 38px);
+}
+
+.card p {
+  margin-top: 16px;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+
+/* =================================
+   COLORS
+   ================================= */
+
+.create {
+  background: #f8eadc;
+  color: #111;
+}
+
+.create span {
+  color: #7050d8;
+  font-style: italic;
+}
+
+.create button {
+  width: fit-content;
+  margin-top: 28px;
+  padding: 14px 22px;
+
+  border: none;
+  border-radius: 30px;
+
+  background: #ffcf68;
+  color: #6045bd;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+
+/* HERO */
+
+.hero {
+  background: #7050d8;
+  color: white;
+  text-align: center;
+  align-items: center;
+}
+
+.hero h1 span {
+  color: #ffd15f;
+}
+
+.hero p {
+  max-width: 600px;
+}
+
+.stars {
+  margin-top: 18px;
+  color: #ffd15f;
+  font-size: 23px;
+  letter-spacing: 5px;
+}
+
+.hero small {
+  margin-top: 7px;
+  font-size: 13px;
+}
+
+
+/* RIGHT */
+
+.presence {
+  background: #dcd0ff;
+}
+
+.world-box {
+  height: 120px;
+
+  margin-top: 18px;
+
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 10px;
+
+  background: white;
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.bar {
+  width: 25px;
+  border-radius: 15px 15px 0 0;
+  background: #7050d8;
+}
+
+.b1 {
+  height: 35%;
+}
+
+.b2 {
+  height: 55%;
+}
+
+.b3 {
+  height: 85%;
+}
+
+.b4 {
+  height: 65%;
+}
+
+.b5 {
+  height: 45%;
+}
+
+
+/* COMPANIES */
+
+.companies {
+  background: white;
+}
+
+.company-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  margin-bottom: 10px;
+
+  font-size: 12px;
+  color: #555;
+}
+
+.company-row span:first-child {
+  color: #7050d8;
+}
+
+.companies h2 {
+  margin-top: 12px;
+}
+
+
+/* INDUSTRIES */
+
+.industries {
+  background: #ffcf68;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 20px;
+}
+
+.tags span {
+  padding: 7px 11px;
+
+  border-radius: 20px;
+
+  background: white;
+
+  font-size: 11px;
+}
+
+
+/* WORKFORCE */
+
+.workforce {
+  background: #ffcf68;
+}
+
+.people {
+  display: flex;
+  margin-top: 22px;
+}
+
+.people div {
+  width: 48px;
+  height: 48px;
+
+  margin-right: -8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: white;
+
+  font-size: 25px;
+}
+
+
+/* STATS */
+
+.stats {
+  background: white;
+}
+
+.stats strong {
+  font-size: 55px;
+  line-height: 1;
+}
+
+.stats p {
+  margin-top: 10px;
+}
+
+
+/* INNOVATION */
+
+.innovation {
+  background: #7050d8;
+  color: white;
+
+  flex-direction: row;
+  align-items: center;
+  gap: 35px;
+}
+
+.innovation h2 {
+  color: white;
+}
+
+.mini-chart {
+  width: 170px;
+  height: 130px;
+
+  padding: 20px;
+
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 10px;
+
+  border-radius: 15px;
+
+  background: white;
+}
+
+.mini-chart div {
+  width: 20px;
+
+  border-radius: 10px 10px 0 0;
+
+  background: #7050d8;
+}
+
+.mini-chart div:nth-child(1) {
+  height: 35%;
+}
+
+.mini-chart div:nth-child(2) {
+  height: 50%;
+}
+
+.mini-chart div:nth-child(3) {
+  height: 70%;
+}
+
+.mini-chart div:nth-child(4) {
+  height: 85%;
+}
+
+.mini-chart div:nth-child(5) {
+  height: 100%;
+}
+
+
+/* =================================
+   MOBILE
+   Same order as reference image
+   ================================= */
+
+@media (max-width: 768px) {
+
   body {
-    margin: 0;
-    display: flex;
-    place-items: center;
-    min-width: 320px;
-    min-height: 100vh;
+    padding: 16px;
+    background: #111;
   }
-  
-  h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
+
+  .mnc-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+
+    gap: 10px;
   }
-  
-  button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #1a1a1a;
-    cursor: pointer;
-    transition: border-color 0.25s;
-  }
-  button:hover {
-    border-color: #646cff;
-  }
-  button:focus,
-  button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-  }
-  
-  @media (prefers-color-scheme: light) {
-    :root {
-      color: #213547;
-      background-color: #ffffff;
-    }
-    a:hover {
-      color: #747bff;
-    }
-    button {
-      background-color: #f9f9f9;
-    }
-  }
-  
-  #root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-  }
-  
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.react:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa);
-  }
-  
-  @keyframes logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    a:nth-of-type(2) .logo {
-      animation: logo-spin infinite 20s linear;
-    }
-  }
-  
+
+  /* Reset desktop grid */
+
   .card {
-    padding: 2em;
+    grid-column: auto;
+    grid-row: auto;
+
+    min-height: 0;
+
+    border-radius: 7px;
+
+    padding: 16px;
   }
-  
-  .read-instructions {
-    color: #888;
+
+
+  /* =================================
+     MOBILE ORDER
+     
+     1 Hero
+     2 Companies
+     3 Industries
+     4 Presence
+     5 Innovation
+     6 Stats
+     7 Create
+     8 Workforce
+     ================================= */
+
+  .hero {
+    order: 1;
+    aspect-ratio: 1 / 0.82;
   }
-  
+
+  .companies {
+    order: 2;
+    aspect-ratio: 1 / 0.52;
+  }
+
+  .industries {
+    order: 3;
+    aspect-ratio: 1 / 0.68;
+  }
+
+  .presence {
+    order: 4;
+    aspect-ratio: 1 / 1.15;
+  }
+
+  .innovation {
+    order: 5;
+    aspect-ratio: 1 / 0.82;
+  }
+
+  .stats {
+    order: 6;
+    aspect-ratio: 1 / 0.65;
+  }
+
+  .create {
+    order: 7;
+    aspect-ratio: 1 / 0.72;
+  }
+
+  .workforce {
+    order: 8;
+    aspect-ratio: 1 / 0.72;
+  }
+
+
+  /* Mobile typography */
+
+  .card h1 {
+    font-size: 29px;
+  }
+
+  .card h2 {
+    font-size: 25px;
+  }
+
+  .card p {
+    font-size: 11px;
+    margin-top: 9px;
+  }
+
+  .hero p {
+    max-width: 250px;
+  }
+
+  .stars {
+    font-size: 13px;
+    margin-top: 10px;
+  }
+
+  .hero small {
+    font-size: 9px;
+  }
+
+  .world-box {
+    height: 105px;
+    margin-top: 12px;
+  }
+
+  .mini-chart {
+    width: 115px;
+    height: 90px;
+    padding: 12px;
+  }
+
+  .mini-chart div {
+    width: 12px;
+  }
+
+  .innovation {
+    gap: 15px;
+  }
+
+  .innovation h2 {
+    font-size: 22px;
+  }
+
+  .stats strong {
+    font-size: 42px;
+  }
+}
+
+
+/* =================================
+   SMALL PHONES
+   ================================= */
+
+@media (max-width: 400px) {
+
+  body {
+    padding: 12px;
+  }
+
+  .mnc-grid {
+    gap: 8px;
+  }
+
+  .card {
+    padding: 13px;
+  }
+
+  .hero h1 {
+    font-size: 25px;
+  }
+
+  .card h2 {
+    font-size: 21px;
+  }
+
+  .innovation {
+    gap: 10px;
+  }
+
+  .mini-chart {
+    width: 100px;
+  }
+}
